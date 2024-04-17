@@ -40,6 +40,14 @@ export TARGET_PACKAGE_REMOVE="
 # present on the installed system.
 function customize_image() {
 
+
+    # install graphics and desktop
+    apt-get install -y \
+    plymouth-theme-ubuntu-logo \
+    ubuntu-gnome-desktop \
+    ubuntu-gnome-wallpapers \ 
+    curl \
+    wget 
     apt-get install -y software-properties-common
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -49,12 +57,6 @@ function customize_image() {
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list  
     add-apt-repository --yes ppa:alex-p/veracrypt
     apt update
-    # install graphics and desktop
-    apt-get install -y \
-    plymouth-theme-ubuntu-logo \
-    ubuntu-gnome-desktop \
-    ubuntu-gnome-wallpapers
-
     # useful tools
     apt-get install -y \
     libfuse2 \
