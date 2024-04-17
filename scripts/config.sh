@@ -39,7 +39,7 @@ export TARGET_PACKAGE_REMOVE="
 # Package customisation function.  Update this function to customize packages
 # present on the installed system.
 function customize_image() {
-    
+
     apt-get install -y \
     software-properties-common
 
@@ -65,7 +65,9 @@ function customize_image() {
     less \
     vlc \
     veracrypt
-
+    
+    curl -f https://downloads.surfshark.com/linux/debian-install.sh --output /tmp/surfshark-install.sh
+    sh /tmp/surfshark-install.sh
     # purge
     apt-get purge -y \
     transmission-gtk \
