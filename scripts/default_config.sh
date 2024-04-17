@@ -53,10 +53,7 @@ function customize_image() {
     curl \
     vim \
     nano \
-    less \
-    vlc
-
-    curl -sSLO https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-22.04-amd64.deb && sudo dpkg --install --force-confnew veracrypt-1.26.7-Ubuntu-22.04-amd64.deb
+    less
 
     # purge
     apt-get purge -y \
