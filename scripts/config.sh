@@ -39,6 +39,10 @@ export TARGET_PACKAGE_REMOVE="
 # Package customisation function.  Update this function to customize packages
 # present on the installed system.
 function customize_image() {
+    
+    apt-get install -y \
+    software-properties-common
+
     add-apt-repository --yes ppa:alex-p/veracrypt
     apt update
     # install graphics and desktop
