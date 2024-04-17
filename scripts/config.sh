@@ -49,6 +49,9 @@ function customize_image() {
 
     # useful tools
     apt-get install -y \
+    libfuse2 \
+    libwxbase3.0-0v5 \
+    libwxgtk3.0-gtk3-0v5 \
     clamav-daemon \
     terminator \
     apt-transport-https \
