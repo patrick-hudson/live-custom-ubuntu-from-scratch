@@ -39,6 +39,8 @@ export TARGET_PACKAGE_REMOVE="
 # Package customisation function.  Update this function to customize packages
 # present on the installed system.
 function customize_image() {
+    add-apt-repository --yes ppa:alex-p/veracrypt
+    apt update
     # install graphics and desktop
     apt-get install -y \
     plymouth-theme-ubuntu-logo \
@@ -54,9 +56,8 @@ function customize_image() {
     vim \
     nano \
     less \
-    vlc
-    
-    curl -sSLO https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-22.04-amd64.deb && sudo dpkg --install --force-confnew veracrypt-1.26.7-Ubuntu-22.04-amd64.deb
+    vlc \
+    veracrypt
 
     # purge
     apt-get purge -y \
