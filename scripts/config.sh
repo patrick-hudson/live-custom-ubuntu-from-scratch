@@ -40,9 +40,13 @@ export TARGET_PACKAGE_REMOVE="
 # present on the installed system.
 function customize_image() {
 
-    apt-get install -y \
-    software-properties-common
-
+    apt-get install -y software-properties-common
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
+    rm -f microsoft.gpg
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list  
     add-apt-repository --yes ppa:alex-p/veracrypt
     apt update
     # install graphics and desktop
@@ -64,7 +68,9 @@ function customize_image() {
     nano \
     less \
     vlc \
-    veracrypt
+    veracrypt \
+    code \
+    google-chrome-stable
     
     curl -f https://downloads.surfshark.com/linux/debian-install.sh --output /tmp/surfshark-install.sh
     sh /tmp/surfshark-install.sh
