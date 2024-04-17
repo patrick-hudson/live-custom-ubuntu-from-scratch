@@ -42,15 +42,15 @@ function customize_image() {
 
 
     # install graphics and desktop
+    apt-get install -y curl
     apt-get install -y \
     plymouth-theme-ubuntu-logo \
     ubuntu-gnome-desktop \
-    ubuntu-gnome-wallpapers \ 
-    curl \
-    wget 
+    ubuntu-gnome-wallpapers
+
     apt-get install -y software-properties-common
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/microsoft.gpg
+    install -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/trusted.gpg.d/
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
     rm -f microsoft.gpg
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
