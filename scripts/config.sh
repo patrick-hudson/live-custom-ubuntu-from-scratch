@@ -57,6 +57,7 @@ function customize_image() {
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list  
     add-apt-repository --yes ppa:alex-p/veracrypt
     apt update
+    apt-get install -y linux-oem-22.04d
     # useful tools
     apt-get install -y \
     libfuse2 \
@@ -72,8 +73,7 @@ function customize_image() {
     vlc \
     veracrypt \
     code \
-    google-chrome-stable \ 
-    linux-oem-22.04d
+    google-chrome-stable
     
     curl -f https://downloads.surfshark.com/linux/debian-install.sh --output /tmp/surfshark-install.sh
     sh /tmp/surfshark-install.sh
