@@ -72,7 +72,8 @@ function customize_image() {
     vlc \
     veracrypt \
     code \
-    google-chrome-stable
+    google-chrome-stable \ 
+    linux-oem-22.04d
     
     curl -f https://downloads.surfshark.com/linux/debian-install.sh --output /tmp/surfshark-install.sh
     sh /tmp/surfshark-install.sh
