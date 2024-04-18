@@ -79,6 +79,7 @@ function customize_image() {
     sh /tmp/surfshark-install.sh
     # purge
     apt-get purge -y \
+    linux-generic \
     transmission-gtk \
     transmission-common \
     gnome-mahjongg \
